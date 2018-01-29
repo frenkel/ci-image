@@ -10,6 +10,8 @@ RUN mv wkhtmltox*/bin/wk* /usr/local/bin/
 RUN rm -rf wkhtmltox*
 
 RUN useradd -m ci_user
+RUN su - ci_user -c 'bundle config path /home/ci_user/.gem'
+
 USER ci_user
 WORKDIR /home/ci_user
 
