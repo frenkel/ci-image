@@ -1,6 +1,6 @@
 FROM ubuntu:17.10
 
-RUN apt-get update && apt-get install -y nodejs npm ruby-dev bundler build-essential zlib1g-dev libsqlite3-dev libpq-dev libmysqlclient-dev tzdata git ghostscript file imagemagick curl libcurl4-openssl-dev tnef && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y nodejs npm ruby-dev bundler build-essential zlib1g-dev libsqlite3-dev libpq-dev libmysqlclient-dev tzdata git ghostscript file imagemagick curl libcurl4-openssl-dev tnef chromium-browser && rm -rf /var/lib/apt/lists/*
 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
