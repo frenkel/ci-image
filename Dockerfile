@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y && DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs libnode-dev ruby-dev bundler build-essential zlib1g-dev libpq-dev libmariadbclient-dev tzdata git ghostscript file imagemagick libmagickwand-dev curl libcurl4-gnutls-dev pkg-config autoconf cmake && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y && DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs libnode-dev ruby-dev bundler build-essential zlib1g-dev libpq-dev libmariadbclient-dev tzdata git ghostscript file imagemagick libmagickwand-dev curl libcurl4-gnutls-dev xfonts-base xfonts-75dpi pkg-config autoconf cmake && rm -rf /var/lib/apt/lists/*
 
 RUN gem install bundler -v '~> 1.0'
 
