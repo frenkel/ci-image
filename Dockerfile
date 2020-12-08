@@ -1,8 +1,11 @@
 FROM ubuntu:20.04
 
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y && DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs libnode-dev node-gyp npm ruby-dev bundler build-essential zlib1g-dev libsqlite3-dev libpq-dev libmariadbclient-dev tzdata git ghostscript file imagemagick libmagickwand-dev curl libcurl4-gnutls-dev tnef xfonts-base xfonts-75dpi pkg-config autoconf cmake && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y && DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs libnode-dev node-gyp npm ruby-dev bundler build-essential zlib1g-dev libpq-dev libmariadbclient-dev tzdata git ghostscript file imagemagick libmagickwand-dev curl libcurl4-gnutls-dev tnef xfonts-base xfonts-75dpi pkg-config autoconf cmake libxslt1-dev libxml2-dev && rm -rf /var/lib/apt/lists/*
 
+# also include bundler 1
 RUN gem install bundler -v '~> 1.0'
+# speedup nokogiri install by using system libraries instead of compiling them during gem install
+RUN bundle config build.nokogiri --use-system-libraries
 
 # install Google Chrome, because chromium-browser can only be installed as snap, which requires
 # snapd, which requires cgroups, which requires ...
