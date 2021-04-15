@@ -4,6 +4,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y && 
 
 # also include bundler 1
 RUN gem install bundler -v '~> 1.0'
+RUN gem install bundler -v '~> 2.0'
 # speedup nokogiri install by using system libraries instead of compiling them during gem install
 RUN bundle config build.nokogiri --use-system-libraries
 
